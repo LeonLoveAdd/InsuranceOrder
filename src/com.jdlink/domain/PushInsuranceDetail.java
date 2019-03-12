@@ -3,41 +3,32 @@ package com.jdlink.domain;
 import java.util.List;
 import java.util.Map;
 
-/*订单结算反馈接口*/
-public class BMC {
+/*保单信息上传订单*/
+public class PushInsuranceDetail {
 
-    /*报文唯一编码*/
     private String MESSAGE_ID;
 
-    /*报文格式*/
     private String MESSAGE_FORMAT="json";
 
-    /*报文类型*/
-    private String MESSAGE_TYPE="DOC_STATUS";
+    private String MESSAGE_TYPE="INSURANCE_DT";
 
-    /*是否压缩*/
     private String COMPRRESS="0";
 
     /*发送日期*/
     private String SEND_DATE;
 
-    /*发送系统*/
     private String SEND_SYS="ICS";
 
-    /*发送企业*/
     private String SENDER="0001";
 
-    /*接受系统*/
-    private String RECEIVE_SYS
-            ="BMS";
+    private String RECEIVE_SYS="OMS";
 
-    /*接受企业*/
-    private String RECEIVER="BMS";
+    private String RECEIVER="00001";
 
-    /*备注*/
-    private String REMARK="";
+    private String REMARK="备注";
 
-    private  List<Map<String,List<BMS>>> DATA;
+    private  List<Map<String,List<InsuranceDetail>>> DATA;
+
 
     public String getMESSAGE_ID() {
         return MESSAGE_ID;
@@ -95,7 +86,13 @@ public class BMC {
         this.SENDER = SENDER;
     }
 
+    public String getRECEIVE_SYS() {
+        return RECEIVE_SYS;
+    }
 
+    public void setRECEIVE_SYS(String RECEIVE_SYS) {
+        this.RECEIVE_SYS = RECEIVE_SYS;
+    }
 
     public String getRECEIVER() {
         return RECEIVER;
@@ -113,25 +110,17 @@ public class BMC {
         this.REMARK = REMARK;
     }
 
-    public List<Map<String, List<BMS>>> getDATA() {
+    public List<Map<String, List<InsuranceDetail>>> getDATA() {
         return DATA;
     }
 
-    public void setDATA(List<Map<String, List<BMS>>> DATA) {
+    public void setDATA(List<Map<String, List<InsuranceDetail>>> DATA) {
         this.DATA = DATA;
-    }
-
-    public String getRECEIVE_SYS() {
-        return RECEIVE_SYS;
-    }
-
-    public void setRECEIVE_SYS(String RECEIVE_SYS) {
-        this.RECEIVE_SYS = RECEIVE_SYS;
     }
 
     @Override
     public String toString() {
-        return "BMC{" +
+        return "PushInsuranceDetail{" +
                 "MESSAGE_ID='" + MESSAGE_ID + '\'' +
                 ", MESSAGE_FORMAT='" + MESSAGE_FORMAT + '\'' +
                 ", MESSAGE_TYPE='" + MESSAGE_TYPE + '\'' +
@@ -139,7 +128,7 @@ public class BMC {
                 ", SEND_DATE='" + SEND_DATE + '\'' +
                 ", SEND_SYS='" + SEND_SYS + '\'' +
                 ", SENDER='" + SENDER + '\'' +
-
+                ", RECEIVE_SYS='" + RECEIVE_SYS + '\'' +
                 ", RECEIVER='" + RECEIVER + '\'' +
                 ", REMARK='" + REMARK + '\'' +
                 ", DATA=" + DATA +
